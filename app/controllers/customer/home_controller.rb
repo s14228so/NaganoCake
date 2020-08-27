@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Customer::HomeController < ApplicationController
 
   def top

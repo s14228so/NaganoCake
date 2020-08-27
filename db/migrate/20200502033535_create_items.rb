@@ -8,7 +8,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :item_image_id, null: false
       t.boolean :is_selling, null: false, default: true
 
-
       t.timestamps
     end
     add_index :items, :name

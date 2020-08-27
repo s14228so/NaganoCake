@@ -1,12 +1,14 @@
-class Admin::GenresController < Admin::ApplicationController
+# frozen_string_literal: true
 
+module Admin
+  class GenresController < Admin::ApplicationController
     def create
       @genre = Genre.new(genre_params)
       @genres = Genre.all
       if @genre.save
-      redirect_to admin_genres_path
+        redirect_to admin_genres_path
       else
-        render 'index'
+        render :index
       end
     end
 
@@ -24,15 +26,18 @@ class Admin::GenresController < Admin::ApplicationController
       if @genre.update(genre_params)
         redirect_to admin_genres_path
       else
-        render 'edit'
+        render :edit
       end
     end
 
     private
+
     def genre_params
-    	params.require(:genre).permit(:name, :is_valid)
+      params.require(:genre).permit(:name, :is_valid)
     end
+
     def find_genre_by_id
-        Genre.find(params[:id])
+      Genre.find(params[:id])
     end
+  end
 end
