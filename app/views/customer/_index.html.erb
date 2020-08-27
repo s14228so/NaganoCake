@@ -1,0 +1,15 @@
+<div class="items">
+	<% items.each do |item| %>
+		<%= link_to customer_item_path(item) do %>
+		<div class="itembox">
+			<%= attachment_image_tag item, :item_image %>
+			<dl>
+				<dt>商品名</dt>
+					<dd><%= item.name %></dd>
+				<dt>価格</dt>
+					<dd>¥ <%= include_tax(item.price) %> </dd>
+			</dl>
+		</div>
+		<% end %>
+	<% end %>
+</div>
